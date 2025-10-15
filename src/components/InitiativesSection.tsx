@@ -32,7 +32,7 @@ export function InitiativesSection() {
     {
       icon: Droplet,
       title: "Blood Donation Camps",
-      description: "Monthly camps across North Tripura. Emergency donor network maintained by district officials.",
+      description: "Monthly camps across North Tripura. Emergency donor network maintained by NGO & district officials.",
       color: "purple"
     }
   ];
@@ -62,7 +62,7 @@ export function InitiativesSection() {
             Our Joint Initiatives
           </h2>
           <p className="text-xl text-muted-foreground mb-4">
-            District Administration
+            District Administration of North Tripura
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-orange-600 to-red-600 mx-auto mb-8"></div>
         </motion.div>

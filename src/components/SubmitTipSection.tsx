@@ -76,7 +76,7 @@ export function SubmitTipSection() {
   ];
 
   return (
-    <section id="submit-tip" className="py-20 bg-gradient-to-b from-white to-orange-50 relative overflow-hidden">
+    <section id="submit-tip" className="py-20 bg-gradient-to-b from-orange-50 to-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -85,7 +85,7 @@ export function SubmitTipSection() {
         }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -148,7 +148,7 @@ export function SubmitTipSection() {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 items-stretch">
           {/* Left Side - Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

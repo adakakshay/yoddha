@@ -28,9 +28,9 @@ export function HeroSection() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-red-50">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-red-50 pt-16">
       {/* Animated Background with Warrior Theme */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-20">
         <motion.div
           animate={{
             backgroundPosition: ['0% 0%', '100% 100%'],
@@ -47,6 +47,7 @@ export function HeroSection() {
             backgroundPosition: 'center',
           }}
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-orange-50/50 via-transparent to-red-50/50"></div>
       </div>
 
       {/* Animated Pattern Overlay */}
@@ -73,7 +74,7 @@ export function HeroSection() {
             >
               <Badge className="mb-4 text-sm py-2 px-4 bg-gradient-to-r from-orange-100 to-red-100 text-orange-700 border-orange-200">
                 <Swords className="w-4 h-4 inline mr-2" />
-                Joint Initiative: District Administration
+                District Administration of North Tripura Initiative
               </Badge>
             </motion.div>
 
