@@ -65,7 +65,7 @@ export function AboutSection() {
             viewport={{ once: true }}
           >
             <p className="text-lg mb-6 leading-relaxed">
-              <strong>YODDHA</strong> is a joint initiative of <strong>দায়বদ্ধ NGO</strong> and the <strong>District Administration of North Tripura</strong>, dedicated to protecting our youth from the rising threat of drugs.
+              <strong>YODDHA</strong> is a joint initiative of <strong>দায়বদ্ধ</strong> and the <strong>District Administration of North Tripura</strong>, dedicated to protecting our youth from the rising threat of drugs.
             </p>
             <p className="text-lg mb-6 leading-relaxed">
               We believe every citizen is a warrior (YODDHA) who can fight against addiction, ignorance, and despair.

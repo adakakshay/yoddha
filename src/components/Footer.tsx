@@ -85,7 +85,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
           <p className="mb-2">
-            © 2025 YODDHA - A Joint Initiative of দায়বদ্ধ NGO & District Administration, North Tripura
+            © 2025 YODDHA - A Joint Initiative of দায়বদ্ধ District Administration, North Tripura
           </p>
           <p className="flex items-center justify-center gap-2">
             Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> for a drug-free future
