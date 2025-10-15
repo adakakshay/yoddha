@@ -62,7 +62,7 @@ export function InitiativesSection() {
             Our Joint Initiatives
           </h2>
           <p className="text-xl text-muted-foreground mb-4">
-            দায়বদ্ধ + District Administration
+            District Administration
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-orange-600 to-red-600 mx-auto mb-8"></div>
         </motion.div>

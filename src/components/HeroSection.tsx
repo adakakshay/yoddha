@@ -73,7 +73,7 @@ export function HeroSection() {
             >
               <Badge className="mb-4 text-sm py-2 px-4 bg-gradient-to-r from-orange-100 to-red-100 text-orange-700 border-orange-200">
                 <Swords className="w-4 h-4 inline mr-2" />
-                Joint Initiative: দায়বদ্ধ District Administration
+                Joint Initiative: District Administration
               </Badge>
             </motion.div>
 
