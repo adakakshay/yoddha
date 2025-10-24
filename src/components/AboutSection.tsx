@@ -5,31 +5,13 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function AboutSection() {
   const visionPoints = [
-    "A district free from drug abuse",
+    "A district free from drug abuse and child marriage",
     "Equal opportunities for children through free education",
     "A strong blood donation network to save lives"
   ];
 
-  const ideologies = [
-    {
-      icon: "🙏",
-      name: "Swami Vivekananda",
-      value: "Sacrifice for the greater good"
-    },
-    {
-      icon: "🎖️",
-      name: "Netaji Subhas Chandra Bose",
-      value: "Strength to fight social evils"
-    },
-    {
-      icon: "✊",
-      name: "Bhagat Singh",
-      value: "Unity for progress"
-    }
-  ];
-
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-white to-orange-50">
+    <section id="about" className="py-8 md:py-12 bg-gradient-to-b from-white to-orange-50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -52,7 +34,7 @@ export function AboutSection() {
             viewport={{ once: true }}
           >
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1748077971754-e8e1a37bd55a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxJbmRpYW4lMjB5b3V0aCUyMGVtcG93ZXJtZW50fGVufDF8fHx8MTc2MDU0ODk1NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+              src="https://images.unsplash.com/photo-1630032373740-c731f30e3ea9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdG9wJTIwZHJ1ZyUyMGFidXNlJTIwY2FtcGFpZ24lMjBJbmRpYXxlbnwxfHx8fDE3NjEzMjc0MTF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
               alt="Youth Empowerment"
               className="rounded-2xl shadow-2xl w-full h-96 object-cover"
             />
@@ -65,10 +47,10 @@ export function AboutSection() {
             viewport={{ once: true }}
           >
             <p className="text-lg mb-6 leading-relaxed">
-              <strong>YODDHA</strong> is a powerful initiative by the <strong>District Administration of North Tripura</strong>, dedicated to protecting our youth from the rising threat of drugs and social evils.
+              <strong>YODDHA</strong> is a powerful initiative by the <strong>District Administration of North Tripura</strong>, dedicated to protecting our youth from the rising threat of drugs, child marriage, and social evils.
             </p>
             <p className="text-lg mb-6 leading-relaxed">
-              We believe every citizen is a warrior (YODDHA) who can fight against addiction, ignorance, and despair.
+              We believe every citizen is a warrior (YODDHA) who can fight against addiction, child exploitation, and social injustice.
             </p>
           </motion.div>
         </div>
@@ -102,37 +84,6 @@ export function AboutSection() {
               ))}
             </div>
           </Card>
-        </motion.div>
-
-        {/* Guiding Ideologies */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold mb-4">Guiding Ideologies</h3>
-            <p className="text-lg text-muted-foreground">Inspired by India's greatest leaders</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {ideologies.map((ideology, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-orange-400">
-                  <div className="text-5xl mb-4">{ideology.icon}</div>
-                  <h4 className="text-xl font-bold mb-3">{ideology.name}</h4>
-                  <p className="text-orange-600 font-medium">{ideology.value}</p>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>

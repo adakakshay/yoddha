@@ -8,6 +8,7 @@ import { AlertTriangle, Shield, Phone, MapPin, Lock, Eye, Heart } from 'lucide-r
 import { useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { toast } from 'sonner@2.0.3';
+import { SimpleCaptcha } from './SimpleCaptcha';
 
 export function SubmitTipSection() {
   const [formData, setFormData] = useState({
@@ -17,9 +18,15 @@ export function SubmitTipSection() {
     contactMethod: '',
     contactInfo: ''
   });
+  const [captchaValid, setCaptchaValid] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!captchaValid) {
+      toast.error('Please complete the CAPTCHA verification');
+      return;
+    }
     
     // Show success toast
     toast.success('Your tip has been submitted successfully!', {
@@ -34,6 +41,7 @@ export function SubmitTipSection() {
       contactMethod: '',
       contactInfo: ''
     });
+    setCaptchaValid(false);
   };
 
   const stats = [
@@ -76,7 +84,7 @@ export function SubmitTipSection() {
   ];
 
   return (
-    <section id="submit-tip" className="py-20 bg-gradient-to-b from-orange-50 to-white relative overflow-hidden">
+    <section id="submit-tip" className="py-8 md:py-16 bg-gradient-to-b from-orange-50 to-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -115,36 +123,41 @@ export function SubmitTipSection() {
           </p>
         </motion.div>
 
-        {/* Stats Section */}
+        {/* Stats Section - Compact */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-6 mb-16"
+          className="mb-12"
         >
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-                    {stat.number}
-                  </div>
-                  <p className="text-muted-foreground">{stat.label}</p>
-                </Card>
-              </motion.div>
-            );
-          })}
+          <Card className="p-4 md:p-6">
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
+              {stats.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-3"
+                  >
+                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br ${stat.color} flex items-center justify-center flex-shrink-0`}>
+                      <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-xl md:text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                        {stat.number}
+                      </div>
+                      <p className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">{stat.label}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </Card>
         </motion.div>
 
         {/* Main Content Grid */}
@@ -266,6 +279,8 @@ export function SubmitTipSection() {
                   </div>
                 </div>
 
+                <SimpleCaptcha onValidate={setCaptchaValid} />
+
                 <Button 
                   type="submit" 
                   className="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 py-6"
@@ -292,7 +307,7 @@ export function SubmitTipSection() {
             {/* Hero Image */}
             <Card className="overflow-hidden shadow-xl">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1688637257486-0b57580199c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxJbmRpYW4lMjB5b3VuZyUyMHdvbWFuJTIwc3BlYWtpbmclMjBtb2JpbGUlMjBwaG9uZXxlbnwxfHx8fDE3NjA1NTEwODN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="https://images.unsplash.com/photo-1691331402328-9ec6a49d0116?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm90ZWN0aW5nJTIwY2hpbGRyZW4lMjBzYWZldHklMjBJbmRpYXxlbnwxfHx8fDE3NjEzMjY2MTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                 alt="Report anonymously"
                 className="w-full h-64 object-cover"
               />
@@ -326,20 +341,6 @@ export function SubmitTipSection() {
                 </motion.div>
               ))}
             </div>
-
-            {/* Emergency Helpline */}
-            <Card className="p-8 bg-gradient-to-br from-red-600 to-orange-600 text-white shadow-2xl">
-              <div className="flex items-center gap-3 mb-4">
-                <Phone className="w-8 h-8" />
-                <h3 className="text-2xl font-bold">Emergency Helpline</h3>
-              </div>
-              <p className="text-3xl font-bold mb-2">1800-XXX-XXXX</p>
-              <p className="opacity-90 mb-4">Available 24/7 for immediate assistance</p>
-              <Button variant="secondary" className="w-full bg-white text-red-600 hover:bg-gray-100">
-                <Phone className="w-4 h-4 mr-2" />
-                Call Now
-              </Button>
-            </Card>
 
             {/* Additional Info */}
             <Card className="p-6 bg-blue-50 border-blue-200">

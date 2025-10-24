@@ -14,7 +14,7 @@ export function NewsTickerSection() {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-red-600 via-orange-600 to-red-600 py-3 relative overflow-hidden mt-16">
+    <div className="bg-gradient-to-r from-red-600 via-orange-600 to-red-600 py-2 md:py-3 relative overflow-hidden mt-[88px]">
       {/* Animated Stripe Background */}
       <motion.div
         animate={{
@@ -31,8 +31,8 @@ export function NewsTickerSection() {
         }}
       />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex items-center gap-4">
+      <div className="container mx-auto px-2 md:px-4 relative z-10">
+        <div className="flex items-center gap-2 md:gap-4">
           {/* Fixed Label */}
           <div className="flex items-center gap-2 flex-shrink-0">
             <motion.div
@@ -59,7 +59,7 @@ export function NewsTickerSection() {
                 x: ['0%', '-100%'],
               }}
               transition={{
-                duration: 30,
+                duration: 15,
                 repeat: Infinity,
                 ease: 'linear',
               }}

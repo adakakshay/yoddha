@@ -1,48 +1,28 @@
-import { motion, useAnimation } from 'motion/react';
+import { motion } from 'motion/react';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
-import { Shield, Sword, Award, Users, Flame, CheckCircle2, Lock } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Shield, Users, Flame, CheckCircle2, Lock, Award } from 'lucide-react';
+import { useState } from 'react';
 import { toast } from 'sonner@2.0.3';
 
 export function BeAYoddhaSection() {
   const [selectedPledge, setSelectedPledge] = useState<string[]>([]);
-  const [warriorLevel, setWarriorLevel] = useState(0);
-  const [showBadge, setShowBadge] = useState(false);
 
   const pledges = [
-    { id: 'drugs', icon: '🚫', text: 'I will stay away from drugs and help others do the same', points: 10 },
-    { id: 'aware', icon: '📢', text: 'I will spread awareness about drug abuse in my community', points: 10 },
-    { id: 'report', icon: '📱', text: 'I will report any suspicious activities anonymously', points: 10 },
-    { id: 'support', icon: '🤝', text: 'I will support those recovering from addiction', points: 10 },
-    { id: 'child', icon: '👶', text: 'I will fight against child marriage and exploitation', points: 10 },
-    { id: 'blood', icon: '💉', text: 'I will donate blood to save lives', points: 10 },
+    { id: 'drugs', icon: '🚫', text: 'I will stay away from drugs and help others do the same' },
+    { id: 'aware', icon: '📢', text: 'I will spread awareness about drug abuse in my community' },
+    { id: 'report', icon: '📱', text: 'I will report any suspicious activities anonymously' },
+    { id: 'support', icon: '🤝', text: 'I will support those recovering from addiction' },
+    { id: 'child', icon: '👶', text: 'I will fight against child marriage and exploitation' },
+    { id: 'blood', icon: '💉', text: 'I will donate blood to save lives' },
   ];
-
-  const warriorRanks = [
-    { level: 0, name: 'Aspiring Yoddha', color: 'from-gray-400 to-gray-600', icon: '🌱' },
-    { level: 2, name: 'Junior Warrior', color: 'from-blue-400 to-blue-600', icon: '⚔️' },
-    { level: 4, name: 'Senior Warrior', color: 'from-purple-400 to-purple-600', icon: '🛡️' },
-    { level: 6, name: 'Guardian Yoddha', color: 'from-orange-400 to-red-600', icon: '🔥' },
-  ];
-
-  const getCurrentRank = () => {
-    return [...warriorRanks].reverse().find(rank => selectedPledge.length >= rank.level) || warriorRanks[0];
-  };
 
   const handlePledgeToggle = (pledgeId: string) => {
     if (selectedPledge.includes(pledgeId)) {
       setSelectedPledge(selectedPledge.filter(id => id !== pledgeId));
     } else {
       setSelectedPledge([...selectedPledge, pledgeId]);
-      // Celebration animation
-      if (selectedPledge.length + 1 === pledges.length) {
-        setShowBadge(true);
-        toast.success('🎉 Congratulations! You are now a Guardian Yoddha!', {
-          description: 'You have taken all the pledges. Share your achievement!',
-        });
-      }
     }
   };
 
@@ -52,19 +32,13 @@ export function BeAYoddhaSection() {
       return;
     }
     
-    toast.success(`🔥 Welcome, ${getCurrentRank().name}!`, {
+    toast.success(`🔥 Welcome, Warrior!`, {
       description: `You've taken ${selectedPledge.length} pledge(s). Be the change!`,
     });
   };
 
-  const achievements = [
-    { icon: '👥', count: '5,000+', label: 'Active Yoddhas' },
-    { icon: '🏆', count: '500+', label: 'Cases Solved' },
-    { icon: '💪', count: '10,000+', label: 'Lives Impacted' },
-  ];
-
   return (
-    <section className="py-20 bg-gradient-to-b from-orange-50 to-red-50 relative overflow-hidden">
+    <section id="pledge" className="py-8 md:py-16 bg-gradient-to-b from-orange-50 to-red-50 relative overflow-hidden">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <motion.div
@@ -109,7 +83,7 @@ export function BeAYoddhaSection() {
           </motion.div>
           
           <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent">
-            Be a YODDHA
+            Take the Pledge
           </h2>
           <div className="w-32 h-1.5 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 mx-auto mb-6"></div>
           <p className="text-xl md:text-2xl mb-4">
@@ -120,92 +94,6 @@ export function BeAYoddhaSection() {
           </p>
         </motion.div>
 
-        {/* Achievement Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-6 mb-12"
-        >
-          {achievements.map((achievement, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, rotate: [0, -2, 2, 0] }}
-            >
-              <Card className="p-6 text-center bg-white/80 backdrop-blur hover:shadow-2xl transition-all border-2 hover:border-orange-400">
-                <div className="text-4xl mb-3">{achievement.icon}</div>
-                <motion.div
-                  initial={{ scale: 1 }}
-                  whileInView={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-                  viewport={{ once: true }}
-                  className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2"
-                >
-                  {achievement.count}
-                </motion.div>
-                <p className="text-muted-foreground">{achievement.label}</p>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Warrior Rank Progress */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <Card className="p-8 bg-gradient-to-br from-orange-600 to-red-600 text-white shadow-2xl">
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <h3 className="text-2xl font-bold mb-2">Your Warrior Rank</h3>
-                <div className="flex items-center gap-3">
-                  <span className="text-4xl">{getCurrentRank().icon}</span>
-                  <span className="text-2xl font-bold">{getCurrentRank().name}</span>
-                </div>
-              </div>
-              <div className="text-right">
-                <div className="text-4xl font-bold">{selectedPledge.length}/{pledges.length}</div>
-                <p className="text-sm opacity-90">Pledges Taken</p>
-              </div>
-            </div>
-            
-            {/* Progress Bar */}
-            <div className="relative h-4 bg-white/20 rounded-full overflow-hidden">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: `${(selectedPledge.length / pledges.length) * 100}%` }}
-                transition={{ duration: 0.5 }}
-                className="h-full bg-gradient-to-r from-yellow-300 to-yellow-500 rounded-full"
-              />
-            </div>
-
-            {/* Rank Milestones */}
-            <div className="grid grid-cols-4 gap-2 mt-4">
-              {warriorRanks.map((rank, index) => (
-                <div
-                  key={index}
-                  className={`text-center p-2 rounded-lg ${
-                    selectedPledge.length >= rank.level
-                      ? 'bg-white/20'
-                      : 'bg-white/5'
-                  }`}
-                >
-                  <div className="text-2xl">{rank.icon}</div>
-                  <div className="text-xs mt-1 opacity-90">{rank.name}</div>
-                </div>
-              ))}
-            </div>
-          </Card>
-        </motion.div>
-
         {/* Interactive Pledge Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -213,7 +101,7 @@ export function BeAYoddhaSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <Card className="p-8 bg-white/90 backdrop-blur shadow-2xl">
+          <Card className="p-8 bg-white/90 backdrop-blur shadow-2xl max-w-5xl mx-auto">
             <div className="text-center mb-8">
               <div className="inline-flex items-center gap-2 mb-4 px-6 py-3 bg-gradient-to-r from-orange-100 to-red-100 rounded-full">
                 <Flame className="w-5 h-5 text-red-600" />
@@ -223,7 +111,7 @@ export function BeAYoddhaSection() {
               <p className="text-muted-foreground">Select the pledges you want to take as a YODDHA</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4 mb-8">
+            <div className="grid md:grid-cols-2 gap-3 mb-8">
               {pledges.map((pledge, index) => {
                 const isSelected = selectedPledge.includes(pledge.id);
                 return (
@@ -236,37 +124,31 @@ export function BeAYoddhaSection() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Card
+                    <div
                       onClick={() => handlePledgeToggle(pledge.id)}
-                      className={`p-6 cursor-pointer transition-all border-2 ${
+                      className={`p-4 cursor-pointer transition-all border-2 rounded-lg ${
                         isSelected
                           ? 'bg-gradient-to-br from-orange-50 to-red-50 border-orange-500 shadow-lg'
-                          : 'hover:border-orange-200 hover:shadow-md'
+                          : 'border-gray-200 hover:border-orange-200 hover:shadow-md bg-white'
                       }`}
                     >
-                      <div className="flex items-start gap-4">
-                        <div className="text-3xl">{pledge.icon}</div>
-                        <div className="flex-1">
-                          <p className={`${isSelected ? 'font-semibold' : ''}`}>
-                            {pledge.text}
-                          </p>
-                          <div className="flex items-center gap-2 mt-2">
-                            <Badge variant={isSelected ? 'default' : 'secondary'} className="text-xs">
-                              +{pledge.points} points
-                            </Badge>
-                            {isSelected && (
-                              <motion.div
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                transition={{ type: 'spring', stiffness: 500, damping: 15 }}
-                              >
-                                <CheckCircle2 className="w-5 h-5 text-green-600" />
-                              </motion.div>
-                            )}
-                          </div>
-                        </div>
+                      <div className="flex items-center gap-3">
+                        <div className="text-2xl flex-shrink-0">{pledge.icon}</div>
+                        <p className={`text-sm flex-1 ${isSelected ? 'font-semibold' : ''}`}>
+                          {pledge.text}
+                        </p>
+                        {isSelected && (
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ type: 'spring', stiffness: 500, damping: 15 }}
+                            className="flex-shrink-0"
+                          >
+                            <CheckCircle2 className="w-5 h-5 text-green-600" />
+                          </motion.div>
+                        )}
                       </div>
-                    </Card>
+                    </div>
                   </motion.div>
                 );
               })}
@@ -298,32 +180,6 @@ export function BeAYoddhaSection() {
                 Invite Friends
               </Button>
             </div>
-
-            {/* Badge Display */}
-            {showBadge && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5, y: 50 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                className="mt-8 p-8 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-2xl border-4 border-orange-400 text-center"
-              >
-                <motion.div
-                  animate={{
-                    rotate: [0, 360],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'linear',
-                  }}
-                  className="inline-block text-6xl mb-4"
-                >
-                  🏆
-                </motion.div>
-                <h4 className="text-2xl font-bold mb-2">Guardian Yoddha Badge Earned!</h4>
-                <p className="text-muted-foreground">You've completed all pledges. You are a true warrior!</p>
-              </motion.div>
-            )}
           </Card>
         </motion.div>
 
@@ -346,10 +202,6 @@ export function BeAYoddhaSection() {
             <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow">
               <Award className="w-4 h-4 text-orange-600" />
               <span className="text-sm">Earn Recognition</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow">
-              <Users className="w-4 h-4 text-blue-600" />
-              <span className="text-sm">Join 5000+ Warriors</span>
             </div>
           </div>
         </motion.div>

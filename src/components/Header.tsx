@@ -24,9 +24,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 bg-background/95 backdrop-blur-sm shadow-md"
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
@@ -54,13 +52,13 @@ export function Header() {
               About
             </button>
             <button onClick={() => scrollToSection('awareness')} className="hover:text-orange-600 transition-colors">
-              Drug Awareness
+              Awareness
             </button>
             <button onClick={() => scrollToSection('initiatives')} className="hover:text-orange-600 transition-colors">
               Initiatives
             </button>
-            <button onClick={() => scrollToSection('help')} className="hover:text-orange-600 transition-colors">
-              Help Us
+            <button onClick={() => scrollToSection('pledge')} className="hover:text-orange-600 transition-colors">
+              Take Pledge
             </button>
             <Button onClick={() => scrollToSection('submit-tip')} className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700">
               Report Now
@@ -89,13 +87,13 @@ export function Header() {
               About
             </button>
             <button onClick={() => scrollToSection('awareness')} className="text-left py-2 hover:text-orange-600 transition-colors">
-              Drug Awareness
+              Awareness
             </button>
             <button onClick={() => scrollToSection('initiatives')} className="text-left py-2 hover:text-orange-600 transition-colors">
               Initiatives
             </button>
-            <button onClick={() => scrollToSection('help')} className="text-left py-2 hover:text-orange-600 transition-colors">
-              Help Us
+            <button onClick={() => scrollToSection('pledge')} className="text-left py-2 hover:text-orange-600 transition-colors">
+              Take Pledge
             </button>
             <Button onClick={() => scrollToSection('submit-tip')} className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 w-full">
               Report Now

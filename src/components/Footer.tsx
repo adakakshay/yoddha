@@ -24,7 +24,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-gray-400 text-sm">
-              Fighting against drug abuse. Building a stronger, safer community.
+              Fighting drug abuse and child marriage. Building a stronger, safer community.
             </p>
           </div>
 
@@ -34,7 +34,7 @@ export function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li><button onClick={() => scrollToSection('home')} className="hover:text-orange-500 transition-colors">Home</button></li>
               <li><button onClick={() => scrollToSection('about')} className="hover:text-orange-500 transition-colors">About Us</button></li>
-              <li><button onClick={() => scrollToSection('awareness')} className="hover:text-orange-500 transition-colors">Drug Awareness</button></li>
+              <li><button onClick={() => scrollToSection('awareness')} className="hover:text-orange-500 transition-colors">Awareness</button></li>
               <li><button onClick={() => scrollToSection('initiatives')} className="hover:text-orange-500 transition-colors">Our Initiatives</button></li>
             </ul>
           </div>
@@ -46,7 +46,7 @@ export function Footer() {
               <li><button onClick={() => scrollToSection('help')} className="hover:text-orange-500 transition-colors">Volunteer</button></li>
               <li><button onClick={() => scrollToSection('help')} className="hover:text-orange-500 transition-colors">Donate Blood</button></li>
               <li><button onClick={() => scrollToSection('help')} className="hover:text-orange-500 transition-colors">Sponsor Education</button></li>
-              <li><button onClick={() => scrollToSection('contact')} className="hover:text-orange-500 transition-colors">Contact Us</button></li>
+              <li><button onClick={() => scrollToSection('submit-tip')} className="hover:text-orange-500 transition-colors">Submit a Tip</button></li>
             </ul>
           </div>
 
@@ -88,7 +88,7 @@ export function Footer() {
             © 2025 YODDHA - District Administration of North Tripura Initiative
           </p>
           <p className="flex items-center justify-center gap-2">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> for a drug-free future
+            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> for a safer North Tripura
           </p>
         </div>
       </div>

@@ -50,7 +50,7 @@ export function SuccessStoriesSection() {
   const currentData = stories[currentStory];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-purple-50 to-pink-50 relative overflow-hidden">
+    <section className="py-8 md:py-16 bg-gradient-to-b from-purple-50 to-pink-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{

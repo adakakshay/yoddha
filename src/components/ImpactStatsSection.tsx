@@ -17,14 +17,6 @@ export function ImpactStatsSection() {
       description: 'Successfully rehabilitated'
     },
     {
-      icon: Users,
-      number: 5420,
-      suffix: '+',
-      label: 'Active YODDHA Warriors',
-      color: 'from-blue-500 to-indigo-600',
-      description: 'Fighting for change'
-    },
-    {
       icon: Heart,
       number: 1284,
       suffix: '+',
@@ -107,7 +99,7 @@ export function ImpactStatsSection() {
   };
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-b from-orange-50 to-white relative overflow-hidden">
+    <section ref={ref} className="py-8 md:py-16 bg-gradient-to-b from-orange-50 to-white relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-5">
         <motion.div
@@ -157,7 +149,7 @@ export function ImpactStatsSection() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
@@ -168,21 +160,21 @@ export function ImpactStatsSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 h-full hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
+                <Card className="p-4 md:p-6 h-full hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
                     transition={{ type: 'spring', stiffness: 300 }}
-                    className={`w-16 h-16 mb-4 rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center shadow-lg`}
+                    className={`w-10 h-10 md:w-16 md:h-16 mb-3 md:mb-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center shadow-lg`}
                   >
-                    <Icon className="w-8 h-8 text-white" />
+                    <Icon className="w-5 h-5 md:w-8 md:h-8 text-white" />
                   </motion.div>
 
-                  <div className={`text-4xl font-bold mb-2 bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
+                  <div className={`text-2xl md:text-4xl font-bold mb-1 md:mb-2 bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
                     {isInView && <AnimatedNumber value={stat.number} suffix={stat.suffix} />}
                   </div>
 
-                  <h3 className="font-bold mb-1">{stat.label}</h3>
-                  <p className="text-sm text-muted-foreground">{stat.description}</p>
+                  <h3 className="text-sm md:text-base font-bold mb-1">{stat.label}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground hidden md:block">{stat.description}</p>
 
                   {/* Progress indicator */}
                   <motion.div
@@ -190,7 +182,7 @@ export function ImpactStatsSection() {
                     whileInView={{ width: '100%' }}
                     transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
                     viewport={{ once: true }}
-                    className="mt-4 h-1 bg-gradient-to-r from-orange-200 to-red-200 rounded-full overflow-hidden"
+                    className="mt-2 md:mt-4 h-1 bg-gradient-to-r from-orange-200 to-red-200 rounded-full overflow-hidden"
                   >
                     <motion.div
                       initial={{ width: 0 }}
@@ -212,34 +204,34 @@ export function ImpactStatsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-6 mt-12"
+          className="grid md:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12"
         >
-          <Card className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-green-200">
-            <h4 className="font-bold mb-2 flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-green-600" />
+          <Card className="p-4 md:p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-green-200">
+            <h4 className="text-sm md:text-base font-bold mb-2 flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 md:w-5 md:h-5 text-green-600" />
               Growing Impact
             </h4>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs md:text-sm text-muted-foreground">
               Our reach expands by <strong>23%</strong> every month as more warriors join the movement.
             </p>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
-            <h4 className="font-bold mb-2 flex items-center gap-2">
-              <Shield className="w-5 h-5 text-blue-600" />
+          <Card className="p-4 md:p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
+            <h4 className="text-sm md:text-base font-bold mb-2 flex items-center gap-2">
+              <Shield className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
               Community Trust
             </h4>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs md:text-sm text-muted-foreground">
               <strong>92%</strong> of community members trust YODDHA for drug-related interventions.
             </p>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-br from-purple-50 to-pink-50 border-purple-200">
-            <h4 className="font-bold mb-2 flex items-center gap-2">
-              <Award className="w-5 h-5 text-purple-600" />
+          <Card className="p-4 md:p-6 bg-gradient-to-br from-purple-50 to-pink-50 border-purple-200">
+            <h4 className="text-sm md:text-base font-bold mb-2 flex items-center gap-2">
+              <Award className="w-4 h-4 md:w-5 md:h-5 text-purple-600" />
               Youth Engagement
             </h4>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs md:text-sm text-muted-foreground">
               <strong>76%</strong> of our warriors are between ages 16-25, leading the change.
             </p>
           </Card>
@@ -251,10 +243,10 @@ export function ImpactStatsSection() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-8 md:mt-12"
         >
-          <Card className="inline-block p-4 bg-gradient-to-r from-orange-100 to-red-100 border-orange-200">
-            <p className="text-sm">
+          <Card className="inline-block p-3 md:p-4 bg-gradient-to-r from-orange-100 to-red-100 border-orange-200">
+            <p className="text-xs md:text-sm">
               <motion.span
                 animate={{
                   opacity: [1, 0.5, 1],

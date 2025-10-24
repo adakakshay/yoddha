@@ -58,7 +58,7 @@ export function HeroSection() {
         }}></div>
       </div>
 
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="container mx-auto px-4 py-8 md:py-16 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
@@ -72,9 +72,9 @@ export function HeroSection() {
               transition={{ duration: 0.5 }}
               className="mb-6"
             >
-              <Badge className="mb-4 text-sm py-2 px-4 bg-gradient-to-r from-orange-100 to-red-100 text-orange-700 border-orange-200">
+              <Badge className="mb-4 text-sm py-2 px-4 bg-gradient-to-r from-orange-100 to-red-100 text-orange-700 border-orange-200 inline-block max-w-full">
                 <Swords className="w-4 h-4 inline mr-2" />
-                District Administration of North Tripura Initiative
+                <span className="inline">District Administration of North Tripura Initiative</span>
               </Badge>
             </motion.div>
 
@@ -114,7 +114,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Fighting drug abuse, protecting our children, and empowering youth in North Tripura. 
+              Fighting drug abuse, ending child marriage, and empowering youth in North Tripura. 
               <strong> Every citizen is a warrior.</strong> Awaken the YODDHA in you and join the movement today!
             </motion.p>
 
@@ -125,16 +125,16 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Button 
-                onClick={() => scrollToSection('help')}
+                onClick={() => scrollToSection('submit-tip')}
                 size="lg" 
                 className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
               >
                 <Shield className="mr-2 w-5 h-5" />
-                Become a Yoddha
+                Report Now
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button 
-                onClick={() => scrollToSection('awareness')}
+                onClick={() => scrollToSection('about')}
                 size="lg" 
                 variant="outline"
                 className="border-2 border-orange-600 text-orange-600 hover:bg-orange-50 text-lg px-8 py-6"
@@ -145,14 +145,13 @@ export function HeroSection() {
 
             {/* Interactive Stats */}
             <motion.div
-              className="grid grid-cols-3 gap-4"
+              className="grid grid-cols-2 gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               {[
                 { icon: Shield, number: '500+', label: 'Lives Saved', color: 'from-green-500 to-emerald-600' },
-                { icon: Users, number: '5,000+', label: 'Warriors', color: 'from-blue-500 to-indigo-600' },
                 { icon: Heart, number: '1,000+', label: 'Blood Units', color: 'from-red-500 to-pink-600' }
               ].map((stat, index) => {
                 const Icon = stat.icon;
@@ -222,17 +221,6 @@ export function HeroSection() {
               </div>
               
               {/* Floating badges with animations */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ duration: 0.5, delay: 1, type: 'spring' }}
-                whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
-                className="absolute top-4 right-4 bg-white p-4 rounded-2xl shadow-xl cursor-pointer"
-              >
-                <div className="text-3xl mb-1">🛡️</div>
-                <div className="text-sm font-bold">Protected</div>
-              </motion.div>
-
               <motion.div
                 initial={{ opacity: 0, scale: 0, x: -50 }}
                 animate={{ opacity: 1, scale: 1, x: 0 }}

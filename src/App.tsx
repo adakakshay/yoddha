@@ -2,17 +2,16 @@ import { Header } from './components/Header';
 import { PageLoader } from './components/PageLoader';
 import { NewsTickerSection } from './components/NewsTickerSection';
 import { HeroSection } from './components/HeroSection';
-import { ImpactStatsSection } from './components/ImpactStatsSection';
 import { SubmitTipSection } from './components/SubmitTipSection';
-import { BeAYoddhaSection } from './components/BeAYoddhaSection';
 import { AboutSection } from './components/AboutSection';
+import { HelpSection } from './components/HelpSection';
 import { AwarenessSection } from './components/AwarenessSection';
 import { InteractiveQuizSection } from './components/InteractiveQuizSection';
 import { SuccessStoriesSection } from './components/SuccessStoriesSection';
 import { InitiativesSection } from './components/InitiativesSection';
-import { HelpSection } from './components/HelpSection';
+import { ImpactStatsSection } from './components/ImpactStatsSection';
+import { BeAYoddhaSection } from './components/BeAYoddhaSection';
 import { SocialShareSection } from './components/SocialShareSection';
-import { FloatingHelpButton } from './components/FloatingHelpButton';
 import { Footer } from './components/Footer';
 import { Toaster } from './components/ui/sonner';
 
@@ -23,19 +22,39 @@ export default function App() {
       <Header />
       <NewsTickerSection />
       <main>
+        {/* a. Hero section (with image, emergency, girl photo) */}
         <HeroSection />
+        
+        {/* b. Submit an Anonymous Tip */}
+        {/* c. Report Securely (part of SubmitTipSection) */}
         <SubmitTipSection />
-        <BeAYoddhaSection />
+        
+        {/* d. About YODDHA */}
         <AboutSection />
-        <AwarenessSection />
-        <InteractiveQuizSection />
-        <SuccessStoriesSection />
-        <InitiativesSection />
-        <ImpactStatsSection />
+        
+        {/* e. How You Can Help */}
         <HelpSection />
+        
+        {/* f. Devastating Effects of Drugs */}
+        <AwarenessSection />
+        
+        {/* g. Test Your Knowledge */}
+        <InteractiveQuizSection />
+        
+        {/* h. Warriors Who Won */}
+        <SuccessStoriesSection />
+        
+        {/* i. Our Joint Initiatives */}
+        <InitiativesSection />
+        
+        {/* j. Our Impact in Numbers */}
+        <ImpactStatsSection />
+        
+        {/* k. Pledge */}
+        <BeAYoddhaSection />
+        
         <SocialShareSection />
       </main>
-      <FloatingHelpButton />
       <Footer />
       <Toaster />
     </div>

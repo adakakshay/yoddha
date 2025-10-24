@@ -49,7 +49,7 @@ export function InitiativesSection() {
   };
 
   return (
-    <section id="initiatives" className="py-20 bg-gradient-to-b from-white to-orange-50">
+    <section id="initiatives" className="py-8 md:py-12 bg-gradient-to-b from-white to-orange-50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
